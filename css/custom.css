@@ -1,0 +1,45 @@
+body {
+    background-color: lightgray;
+    padding: 50px 0;
+}
+
+label {
+    margin: 0;
+    min-width: 100%;
+}
+
+.row {
+    max-width: 80%;
+    margin: 15px auto;
+}
+
+#input-porcentaje {
+    max-width: 20%;
+}
+
+.input-fecha {
+    max-width: 30%;
+}
+
+p {
+    line-height: calc(2.25rem + 2px);
+    margin: 0 0 0 5px;
+}
+
+@media only screen and (min-width: 868px) {
+    .row {
+        max-width: 60%;
+    }
+    #input-porcentaje {
+        max-width: 15%;
+    }
+}
+
+@media only screen and (min-width: 1024px) {
+    .row {
+        max-width: 50%;
+    }
+    .input-fecha {
+        max-width: 25%;
+    }
+}
