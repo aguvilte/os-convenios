@@ -26,6 +26,12 @@ p {
     margin: 0 0 0 5px;
 }
 
+#titulo-principal {
+    margin-bottom: 50px;
+    text-align: center;
+    /* border-bottom: 1px solid black; */
+}
+
 @media only screen and (min-width: 868px) {
     .row {
         max-width: 60%;
@@ -33,6 +39,11 @@ p {
     #input-porcentaje {
         max-width: 15%;
     }
+}
+
+#wrapper-btn-submit {
+    text-align: center;
+    margin-top: 50px;
 }
 
 @media only screen and (min-width: 1024px) {

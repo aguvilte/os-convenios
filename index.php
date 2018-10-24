@@ -4,14 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>OSUNLaR - Agregar convenio</title>
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/custom.css">
     <link href="https://cdn.jsdelivr.net/npm/gijgo@1.9.10/css/gijgo.min.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
-    <form action="save_convenio.php" method="post" id="form-convenio" name="form-convenio">
+    <form action="save_convenio.php" method="post" id="form-convenio" name="form-convenio" enctype="multipart/form-data">
         <div class="container">
+            <h1 id="titulo-principal">Formulario - Agregar convenio</h1>
             <div class="row form-group">
                 <label for="input-prestador">Prestador</label>
                 <input type="text" class="form-control" id="input-prestador" name="prestador">
@@ -48,7 +49,7 @@
                 <label for="input-fecha-hasta">Fecha hasta</label>
                 <input class="input-fecha" id="input-fecha-hasta" name="fecha-hasta">
             </div>
-            <div class="form-submit" style="text-align: center; margin-top: 50px;">
+            <div class="form-submit" id="wrapper-btn-submit">
                 <input id="btn-submit" type="submit" class="btn btn-success" value="Guardar">
             </div>
         </div>
