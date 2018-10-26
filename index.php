@@ -14,12 +14,28 @@
         <div class="container">
             <h1 id="titulo-principal">Formulario - Agregar convenio</h1>
             <div class="row form-group">
-                <label for="input-prestador">Prestador</label>
-                <input type="text" class="form-control" id="input-prestador" name="prestador">
+                <label for="input-cuit-prestador">CUIT Prestador</label>
+                <input type="text" class="form-control" id="input-cuit-prestador" name="cuit-prestador">
+            </div>
+            <div class="row form-group">
+                <label for="input-nombre-prestador">Prestador</label>
+                <input type="text" class="form-control" id="input-nombre-prestador" name="nombre-prestador" readonly>
+            </div>
+            <div class="row form-group">
+                <label for="input-nombre-prestador">CBU Prestador</label>
+                <input type="text" class="form-control" id="input-cbu-prestador" name="cbu-prestador" readonly>
+            </div>
+            <div class="row form-group">
+                <label for="input-nombre-prestador">Número de cuenta</label>
+                <input type="text" class="form-control" id="input-num-cuenta-prestador" name="num-cuenta-prestador" readonly>
             </div>
             <div class="row form-group">
                 <label for="input-nombre-resp">Nombre responsable</label>
                 <input type="text" class="form-control" id="input-nombre-resp" name="nombre-resp">
+            </div>
+            <div class="row form-group">
+                <label for="input-nombre-resp">E-mail responsable</label>
+                <input type="text" class="form-control" id="input-email-resp" name="email-resp">
             </div>
             <div class="row form-group">
                 <label for="input-cargo">Cargo</label>
@@ -27,15 +43,15 @@
             </div>
             <div class="row form-group">
                 <label for="input-archivo-1">Archivo 1</label>
-                <input type="file" class="form-control-file" id="input-archivo-1" name="archivo-1">
+                <input type="file" class="form-control-file" id="input-archivo-hab-municipal" name="archivo-hab-municipal">
             </div>
             <div class="row form-group">
                 <label for="input-archivo-2">Archivo 2</label>
-                <input type="file" class="form-control-file" id="input-archivo-2" name="archivo-2">
+                <input type="file" class="form-control-file" id="input-archivo-hab-salud-publica" name="archivo-hab-salud-publica">
             </div>
             <div class="row form-group">
                 <label for="input-archivo-3">Archivo 3</label>
-                <input type="file" class="form-control-file" id="input-archivo-3" name="archivo-3">
+                <input type="file" class="form-control-file" id="input-archivo-seguro" name="archivo-seguro">
             </div>
             <div class="row form-group">
                 <label for="input-porcentaje">Porcentaje</label>
@@ -55,8 +71,8 @@
         </div>
     </form>
 
-    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/gijgo@1.9.10/js/gijgo.min.js" type="text/javascript"></script>
+    <script src="js/jquery.min.js"></script>
+    <script src="js/gijgo.min.js" type="text/javascript"></script>
     <script src="js/bootstrap.min.js"></script>
     <script src="js/index.js"></script>
 </body>

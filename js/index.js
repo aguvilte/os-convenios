@@ -8,23 +8,25 @@ $('#input-fecha-hasta').datepicker({
 });
 
 myVar = setInterval(function() {
-    inputPrestadorVal = document.getElementById('input-prestador').value;
+    inputCuitPrestadorVal = document.getElementById('input-cuit-prestador').value;
+    inputNombrePrestadorVal = document.getElementById('input-nombre-prestador').value;
     inputNombreRespVal = document.getElementById('input-nombre-resp').value;
     inputCargoVal = document.getElementById('input-cargo').value;
-    inputArchivo1Val = document.getElementById('input-archivo-1').value;
-    inputArchivo2Val = document.getElementById('input-archivo-2').value;
-    inputArchivo3Val = document.getElementById('input-archivo-3').value;
+    inputHabMunicipalVal = document.getElementById('input-archivo-hab-municipal').value;
+    inputHabSaludPublicaVal = document.getElementById('input-archivo-hab-salud-publica').value;
+    inputSeguroVal = document.getElementById('input-archivo-seguro').value;
     inputPorcentajeVal = document.getElementById('input-porcentaje').value;
     inputFechaDesdeVal = document.getElementById('input-fecha-desde').value;
     inputFechaHastaVal = document.getElementById('input-fecha-hasta').value;
 
     if (
-        inputPrestadorVal != '' &&
+        inputCuitPrestadorVal != '' &&
+        inputNombrePrestadorVal != '' &&
         inputNombreRespVal != '' &&
         inputCargoVal != '' &&
-        inputArchivo1Val != '' &&
-        inputArchivo2Val != '' &&
-        inputArchivo3Val != '' &&
+        inputHabMunicipalVal != '' &&
+        inputHabSaludPublicaVal != '' &&
+        inputSeguroVal != '' &&
         inputPorcentajeVal != '' &&
         inputFechaDesdeVal != '' &&
         inputFechaHastaVal != ''
@@ -43,4 +45,21 @@ $('#btn-submit').click(function() {
 
     document.getElementById('input-fecha-desde').value = newFechaDesde;
     document.getElementById('input-fecha-hasta').value = newFechaHasta;
+});
+
+$('#input-cuit-prestador').change(function() {
+    $valorCuit = $(this).val();
+    $.ajax({
+            type: 'GET',
+            url: './get_prestador.php',
+            data: {
+                cuit: $valorCuit
+            },
+            dataType: 'json'
+        })
+        .done(function(data) {
+            $('#input-nombre-prestador').val(data.nombre);
+            $('#input-cbu-prestador').val(data.cbu);
+            $('#input-num-cuenta-prestador').val(data.num_cuenta);
+        });
 });

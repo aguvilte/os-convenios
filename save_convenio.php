@@ -2,12 +2,13 @@
 
 include 'config/db.php';
 
-$prestador = utf8_decode($_POST['prestador']);
+$prestador = utf8_decode($_POST['cuit-prestador']);
 $nombre_resp = utf8_decode($_POST['nombre-resp']);
+$email_resp = utf8_decode($_POST['email-resp']);
 $cargo = utf8_decode($_POST['cargo']);
-$archivo_1 = $_FILES['archivo-1'];
-$archivo_2 = $_FILES['archivo-2'];
-$archivo_3 = $_FILES['archivo-3'];
+$hab_municipal = $_FILES['archivo-hab-municipal'];
+$hab_salud_publica = $_FILES['archivo-hab-salud-publica'];
+$seguro = $_FILES['archivo-seguro'];
 $porcentaje_aumento = $_POST['porcentaje'];
 $fecha_desde = $_POST['fecha-desde'];
 $fecha_hasta = $_POST['fecha-hasta'];
@@ -16,38 +17,42 @@ try {
     $conexion = new PDO('mysql:host=' . $host . '; dbname=' . $dbname, $dbuser, $dbpass);
     $conexion->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-    $ruta_1 = "./uploads/" . $archivo_1['name'];
-    $ruta_2 = "./uploads/" . $archivo_2['name'];
-    $ruta_3 = "./uploads/" . $archivo_3['name'];
+    $ruta_hab_municipal = "./uploads/" . $hab_municipal['name'];
+    $ruta_hab_salud_publica = "./uploads/" . $hab_salud_publica['name'];
+    $ruta_seguro = "./uploads/" . $seguro['name'];
 
-    move_uploaded_file($archivo_1['tmp_name'], $ruta_1);
-    move_uploaded_file($archivo_2['tmp_name'], $ruta_2);
-    move_uploaded_file($archivo_3['tmp_name'], $ruta_3);
+    move_uploaded_file($hab_municipal['tmp_name'], $ruta_hab_municipal);
+    move_uploaded_file($hab_salud_publica['tmp_name'], $ruta_hab_salud_publica);
+    move_uploaded_file($seguro['tmp_name'], $ruta_seguro);
 
     $sql = $conexion->prepare(
         'INSERT INTO convenios (
             prestador,
             nombre_resp,
+            email_resp,
             cargo,
-            ruta_1,
-            ruta_2,
-            ruta_3,
+            ruta_hab_municipal,
+            ruta_hab_salud_publica,
+            ruta_seguro,
             porcentaje_aumento,
             fecha_desde,
             fecha_hasta
         ) VALUES (
             "' . $prestador . '",
             "' . $nombre_resp . '",
+            "' . $email_resp . '",
             "' . $cargo . '",
-            "' . $ruta_1 . '",
-            "' . $ruta_2 . '",
-            "' . $ruta_3 . '",
+            "' . $ruta_hab_municipal . '",
+            "' . $ruta_hab_salud_publica . '",
+            "' . $ruta_seguro . '",
             ' . $porcentaje_aumento . ',
             "' . $fecha_desde . '",
             "' . $fecha_hasta . '"
         )'
     );
-    $sql->execute();
+    if($sql->execute()) {
+        header('Location: ./index.php');
+    };
 
 } catch (PDOException $e) {
     $mensaje = $e->getMessage();
