@@ -2,3 +2,6 @@ config/
 css-bootstrap/
 js-bootstrap/
 uploads/
+
+cuit.txt
+js/create.old.js

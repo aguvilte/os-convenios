@@ -50,16 +50,14 @@ $('#btn-submit').click(function() {
 $('#input-cuit-prestador').change(function() {
     $valorCuit = $(this).val();
     $.ajax({
-            type: 'GET',
-            url: './get_prestador.php',
-            data: {
-                cuit: $valorCuit
-            },
-            dataType: 'json'
-        })
-        .done(function(data) {
-            $('#input-nombre-prestador').val(data.nombre);
-            $('#input-cbu-prestador').val(data.cbu);
-            $('#input-num-cuenta-prestador').val(data.num_cuenta);
-        });
+        type: 'POST',
+        url: 'http://prestadoresosunlar.unlar.edu.ar:88/test.php?ConsultarProveedor',
+        data: {
+            CUIT: $valorCuit
+        },
+        dataType: 'json',
+        success: function(data) {
+            $('#input-nombre-prestador').val(data[0].Prov_Nombre);
+        }
+    });
 });
