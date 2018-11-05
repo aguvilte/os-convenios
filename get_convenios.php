@@ -6,7 +6,7 @@ try {
     $conexion = new PDO('mysql:host=' . $host . '; dbname=' . $dbname, $dbuser, $dbpass);
     $conexion->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-    $sql = $conexion->prepare('SELECT * FROM convenios, prestadores');
+    $sql = $conexion->prepare('SELECT * FROM convenios INNER JOIN prestadores on convenios.prestador = prestadores.cuit');
     $sql->execute();
 
     $i = 0;
