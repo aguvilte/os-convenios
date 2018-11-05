@@ -25,6 +25,7 @@
                             <th scope="col">Fecha desde</th>
                             <th scope="col">Fecha hasta</th>
                             <th scope="col">Ver detalles</th>
+                            <th scope="col">Modificar</th>
                         </tr>
                     </thead>
                     <tbody>

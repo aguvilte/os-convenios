@@ -47,17 +47,17 @@ $('#btn-submit').click(function() {
     document.getElementById('input-fecha-hasta').value = newFechaHasta;
 });
 
-$('#input-cuit-prestador').change(function() {
-    $valorCuit = $(this).val();
-    $.ajax({
-        type: 'GET',
-        url: 'http://prestadoresosunlar.unlar.edu.ar:88/test.php?ConsultarProveedor',
-        data: {
-            CUIT: $valorCuit
-        },
-        dataType: 'json',
-        success: function(data) {
-            $('#input-nombre-prestador').val(data[0].Prov_Nombre);
-        }
-    });
-});
+// $('#input-cuit-prestador').change(function() {
+//     $valorCuit = $(this).val();
+//     $.ajax({
+//         type: 'GET',
+//         url: 'http://prestadoresosunlar.unlar.edu.ar:88/test.php?ConsultarProveedor',
+//         data: {
+//             CUIT: $valorCuit
+//         },
+//         dataType: 'json',
+//         success: function(data) {
+//             $('#input-nombre-prestador').val(data[0].Prov_Nombre);
+//         }
+//     });
+// });

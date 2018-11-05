@@ -12,8 +12,9 @@ try {
     $i = 0;
     while($datos = $sql->fetch(PDO::FETCH_ASSOC)) {
         $i++;
-
+        
         // TABLA CONVENIOS
+        $id_convenio = $datos['id'];
         $cuit_prestador = $datos['prestador'];
         $nombre_resp = $datos['nombre_resp'];
         $email_resp = $datos['email_resp'];
@@ -41,6 +42,11 @@ try {
                     <button value="' . $i . '" class="btn btn-default btn-fawesome" type="button" data-toggle="collapse" data-target="#collapse' . $i . '" aria-expanded="false" aria-controls="collapseExample">
                         <i class="fas fa-align-justify"></i>
                     </button>
+                </td>
+                <td>
+                    <a href="./update.php?convenio=' . $id_convenio . '">
+                        <i class="fas fa-align-justify"></i>
+                    </a>
                 </td>
             </tr>
             <tr class="td-oculto" id="detallado-' . $i . '">
