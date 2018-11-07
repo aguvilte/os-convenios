@@ -11,11 +11,11 @@
 </head>
 <body>
     <form action="save_convenio.php" method="post" id="form-convenio" name="form-convenio" enctype="multipart/form-data">
-        <div class="container">
-            <h1 id="titulo-principal">Listado de convenios</h1>
+        <?php include './cabecera.php'; ?>
+        <div class="container container-table-index">
+            <h2 id="titulo-principal">Listado de convenios</h2>
             <div class="table-responsive">
                 <table class="table">
-                    <caption>List of users</caption>
                     <thead class="thead-dark">
                         <tr>
                             <th scope="col">#</th>

@@ -11,8 +11,9 @@
 </head>
 <body>
     <form action="save_convenio.php" method="post" id="form-convenio" name="form-convenio" enctype="multipart/form-data">
-        <div class="container">
-            <h1 id="titulo-principal">Formulario - Agregar convenio</h1>
+        <?php include './cabecera.php'; ?>
+        <div class="container container-form-create">
+            <h2 id="titulo-principal">Formulario - Agregar convenio</h2>
             <div class="row form-group">
                 <label for="input-cuit-prestador">CUIT Prestador</label>
                 <input type="text" class="form-control" id="input-cuit-prestador" name="cuit-prestador">
